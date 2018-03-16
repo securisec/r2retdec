@@ -1,0 +1,26 @@
+{
+  "name": "r2decompile",
+  "version": "1.0.0",
+  "description": "Use a local retdec to decompile functions",
+  "main": "r2decompile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/securisec/r2decompile.git"
+  },
+  "keywords": [],
+  "author": "securisec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/securisec/r2decompile/issues"
+  },
+  "homepage": "https://github.com/securisec/r2decompile#readme",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "blessed": "^0.1.81",
+    "cli-highlight": "^1.2.3",
+    "r2pipe": "^2.6.2"
+  }
+}
