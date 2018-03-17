@@ -1,30 +1,30 @@
-# r2decompile
+# r2retdec
 [![Twitter Follow](https://img.shields.io/twitter/follow/securisec.svg?style=social&label=Follow)]()
 [![Analytics](https://ga-beacon.appspot.com/UA-113966566-4/r2wiki/readme)](https://github.com/securisec/r2wiki)
-![repo size](https://img.shields.io/github/repo-size/securisec/r2decompile.svg)
+![repo size](https://img.shields.io/github/repo-size/securisec/r2retdec.svg)
 
 
-r2decompile is a bridge in between radare2 and retdec and decompiles individual functions. It also provides summary of strings, xrefs and calls for a function.
+r2retdec is a bridge in between radare2 and retdec and decompiles individual functions. It also provides summary of strings, xrefs and calls for a function.
 
 ## Installation
 Install from r2pm.
 ```
 r2pm init
 r2pm update
-r2pm -i r2decompile
+r2pm -i r2retdec
 ```
-Create a file in $HOME call .r2decompile and put the path to retdec-decompiler.sh in it.
+Create a file in $HOME call .r2retdec and put the path to retdec-decompiler.sh in it.
 
 ## Uninstallation
 ```
-r2pm -u r2decompile
+r2pm -u r2retdec
 ```
 
 ## Usage
 ```
-usage: $r2decompile [-h] [-p] [-t FILE]
+usage: $dec [-h] [-p] [-t FILE]
 
-r2decompile help
+r2retdec help
 
 Optional arguments:
   -h, --help  Show this help message and exit.

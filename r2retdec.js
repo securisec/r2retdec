@@ -7,7 +7,7 @@ const blessed = require('blessed');
 const ArgumentParser = require('argparse').ArgumentParser;
 const parser = new ArgumentParser({
       addHelp: true,
-      description: 'r2decompile help'
+      description: 'r2retdec help'
 });
 
 
@@ -30,9 +30,9 @@ function arg_help() {
 
 function checkConfig() {
       // Checks for and returns the path of the config file
-      var configFile = process.env.HOME + '/.r2decompile';
+      var configFile = process.env.HOME + '/.r2retdec';
       if (!fs.existsSync(configFile)) {
-            console.log('\nCould not find config file. Set the path to retdec in $HOME/.r2decompile');
+            console.log('\nCould not find config file. Set the path to retdec in $HOME/.r2retdec');
             process.exit(0);
       } else {
             return fs.readFileSync(configFile, 'utf8');
@@ -108,7 +108,7 @@ var screen = blessed.screen({
       smartCSR: true
 });
 
-screen.title = 'r2decompile';
+screen.title = 'r2retdec';
 
 var help = blessed.text({
       parent: screen,
@@ -133,7 +133,7 @@ c: close help
 d: show disassembly
 s: function strings
 c: function calls
-q: quit r2decompile
+q: quit r2retdec
 TAB: choose box`,
             border: {
                   type: 'line',
