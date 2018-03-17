@@ -1,7 +1,7 @@
 # r2decompile
 [![Twitter Follow](https://img.shields.io/twitter/follow/securisec.svg?style=social&label=Follow)]()
 [![Analytics](https://ga-beacon.appspot.com/UA-113966566-4/r2wiki/readme)](https://github.com/securisec/r2wiki)
-![repo size](https://img.shields.io/github/repo-size/securisec/radare2_wiki.svg)
+![repo size](https://img.shields.io/github/repo-size/securisec/r2decompile.svg)
 
 
 r2decompile is a bridge in between radare2 and retdec and decompiles individual functions. It also provides summary of strings, xrefs and calls for a function.
