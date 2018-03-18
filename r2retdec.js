@@ -94,10 +94,17 @@ var functionEndAddress = '0x' + pdf.ops.pop().offset.toString(16);
 var retDecPath = checkConfig().replace('\n', '');
 var a = arg_help();
 var command = `${retDecPath} --cleanup -o ${a.tmp} --select-ranges ${functionStartAddress}-${functionEndAddress} ${binaryPath}`;
-var p = exec(command).toString();
-var code = fs.readFileSync(a.tmp, 'utf8');
-var highlighted_code = highlight(code);
 var function_pdf = r2.cmd('pdf');
+
+try {
+      var p = exec(command).toString();
+      var code = fs.readFileSync(a.tmp, 'utf8');
+      var highlighted_code = highlight(code);
+
+} catch (e) {
+      var highlighted_code = 'Not valid for 64 bit. Using pdc instead\n\n';
+      highlighted_code += highlight(r2.cmd('pdc'));
+}
 
 if (a.print === true) {
       console.log(highlighted_code);
