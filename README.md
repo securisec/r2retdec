@@ -6,6 +6,8 @@
 
 r2retdec is a bridge in between radare2 and retdec and decompiles individual functions. It also provides summary of strings, xrefs and calls for a function.
 
+[![asciicast](https://asciinema.org/a/170931.png)](https://asciinema.org/a/170931)
+
 ## Installation
 Install from r2pm.
 ```
@@ -13,7 +15,7 @@ r2pm init
 r2pm update
 r2pm -i r2retdec
 ```
-Create a file in $HOME call .r2retdec and put the path to retdec-decompiler.sh in it.
+Create a file in $HOME call .r2retdec and put the full path to retdec-decompiler.sh in it.
 
 ## Uninstallation
 ```
@@ -29,7 +31,7 @@ r2retdec help
 Optional arguments:
   -h, --help  Show this help message and exit.
   -t TMP      Set temp file for decompiled code
-  -p          Print dicompilation to stdout
+  -p          Print decompilation to stdout
 
 Invoke from inside r2 shell with $dec
 ```

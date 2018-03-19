@@ -21,7 +21,7 @@ function arg_help() {
             dest: 'tmp'
       });
       parser.addArgument('-p', {
-            help: 'Print dicompilation to stdout',
+            help: 'Print decompilation to stdout',
             dest: 'print',
             action: 'storeTrue'
       });
