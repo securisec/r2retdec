@@ -18,7 +18,7 @@ sudo make install
 
 cd ~/retdec
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=$HOME/retdec-install -DRETDEC_DOC=ON ..
+cmake -DCMAKE_INSTALL_PREFIX=$HOME/retdec-install ..
 wget https://github.com/avast-tl/llvm/archive/753e703b185f07f6f85c8ca474a65f4a965371b1.zip -O external/src/llvm.zip
 make -j$cpucores
 make install

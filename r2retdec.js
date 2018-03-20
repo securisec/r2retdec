@@ -25,6 +25,11 @@ function arg_help() {
             dest: 'print',
             action: 'storeTrue'
       });
+      parser.addArgument('--python', {
+            help: 'Print decompilation in python syntax. Default is C',
+            dest: 'python',
+            action: 'storeTrue'
+      });
       return parser.parseArgs();
 }
 
@@ -50,6 +55,7 @@ function boxFrame(align, height, width, content) {
             keys: true,
             mouse: true,
             top: align,
+            draggable: true,
             left: 'center',
             width: width,
             height: height,
@@ -93,8 +99,13 @@ var functionStartAddress = '0x' + pdf.addr.toString(16);
 var functionEndAddress = '0x' + pdf.ops.pop().offset.toString(16);
 var retDecPath = checkConfig().replace('\n', '');
 var a = arg_help();
-var command = `${retDecPath} --cleanup -o ${a.tmp} --select-ranges ${functionStartAddress}-${functionEndAddress} ${binaryPath}`;
 var function_pdf = r2.cmd('pdf');
+
+if (a.python === true) {
+      var command = `${retDecPath} --cleanup -o ${a.tmp} -l py --select-ranges ${functionStartAddress}-${functionEndAddress} ${binaryPath}`;
+} else {
+      var command = `${retDecPath} --cleanup -o ${a.tmp} --select-ranges ${functionStartAddress}-${functionEndAddress} ${binaryPath}`;
+}
 
 try {
       var p = exec(command).toString();
