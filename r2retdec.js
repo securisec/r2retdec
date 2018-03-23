@@ -93,7 +93,7 @@ function smallBoxes(command, key) {
 }
 
 // runs retdec decompiler script
-var binaryPath = r2.cmdj('oj')[0].uri;
+var binaryPath = r2.cmdj('oj')[0]['uri'];
 var pdf = r2.cmdj('pdfj');
 var functionStartAddress = '0x' + pdf.addr.toString(16);
 var functionEndAddress = '0x' + pdf.ops.pop().offset.toString(16);
