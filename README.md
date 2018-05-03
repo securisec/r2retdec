@@ -46,6 +46,7 @@ Needs a locally compiled retdec available from https://github.com/avast-tl/retde
 ## Tested with
 - Node version 8 and 9
 - Ubuntu 16.04 Vagrant
+- Mac OSX 10.12
 
 ## Supported architectures
 (32b only): Intel x86, ARM, MIPS, PIC32, and PowerPC.
