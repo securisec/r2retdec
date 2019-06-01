@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const r2pipe = require('r2pipe');
 const r2 = r2pipe.lpipeSync();
 const exec = require('child_process').execSync;
@@ -95,6 +97,10 @@ function smallBoxes(command, key) {
 // runs retdec decompiler script
 var binaryPath = r2.cmdj('oj')[0]['uri'];
 var pdf = r2.cmdj('pdfj');
+if (pdf === null) {
+	// Cannot find any function in current offset
+	process.exit(0);
+}
 var functionStartAddress = '0x' + pdf.addr.toString(16);
 var functionEndAddress = '0x' + pdf.ops.pop().offset.toString(16);
 var retDecPath = checkConfig().replace('\n', '');
@@ -111,7 +117,6 @@ try {
       var p = exec(command).toString();
       var code = fs.readFileSync(a.tmp, 'utf8');
       var highlighted_code = highlight(code);
-
 } catch (e) {
       highlighted_code = 'Not valid for 64 bit arch. Using pdc instead\n\n';
       highlighted_code += highlight(r2.cmd('pdc'));
