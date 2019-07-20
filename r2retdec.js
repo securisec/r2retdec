@@ -94,6 +94,18 @@ function smallBoxes(command, key) {
       });
 }
 
+function rename_functions(code) {
+    fn_data = r2.cmdj('aflj');
+    for (i = 0; i < fn_data.length; i++) {
+        r2_name = fn_data[i].name;
+        if(r2_name.slice(0,4) != "fcn.") {
+            retdec_name = "function_" + fn_data[i].offset.toString(16);
+            code = code.replace(new RegExp(retdec_name, 'g'), r2_name);
+        }
+    }
+    return code
+}
+
 // runs retdec decompiler script
 var binaryPath = r2.cmdj('oj')[0]['uri'];
 var pdf = r2.cmdj('pdfj');
@@ -116,6 +128,7 @@ if (a.python === true) {
 try {
       var p = exec(command).toString();
       var code = fs.readFileSync(a.tmp, 'utf8');
+      code = rename_functions(code);
       var highlighted_code = highlight(code);
 } catch (e) {
       highlighted_code = 'Not valid for 64 bit arch. Using pdc instead\n\n';
