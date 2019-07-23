@@ -125,18 +125,21 @@ if (a.python === true) {
       var command = `${retDecPath} --cleanup -o ${a.tmp} --select-ranges ${functionStartAddress}-${functionEndAddress} ${binaryPath}`;
 }
 
+var code = '';
+var errMsg = '';
 try {
-      var p = exec(command).toString();
-      var code = fs.readFileSync(a.tmp, 'utf8');
-      code = rename_functions(code);
-      var highlighted_code = highlight(code);
+      let p = exec(command).toString();
+      code = fs.readFileSync(a.tmp, 'utf8');
 } catch (e) {
-      highlighted_code = 'Not valid for 64 bit arch. Using pdc instead\n\n';
-      highlighted_code += highlight(r2.cmd('pdc'));
+      errMsg = `Failed to decompile ${binaryPath}. Using pdc instead`;
+      code == r2.cmd('pdc');
 }
 
+code = rename_functions(code);
+var dec_output = `${errMsg}\n\n${highlight(code)}`;
+
 if (a.visual !== true) {
-      console.log(highlighted_code);
+      console.log(dec_output);
       process.exit(0);
 }
 
@@ -205,7 +208,7 @@ calls(r2.cmd('pdsf~call'), 'c');
 // show xref
 smallBoxes(r2.cmd('axt'), 'x');
 
-var box2 = boxFrame('center', '99%', '100%', highlighted_code);
+var box2 = boxFrame('center', '99%', '100%', dec_output);
 box2.focus();
 screen.append(box2);
 box2.key(['q'], function () {
