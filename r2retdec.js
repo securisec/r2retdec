@@ -22,9 +22,9 @@ function arg_help() {
             defaultValue: '/tmp/r2.c',
             dest: 'tmp'
       });
-      parser.addArgument('-p', {
-            help: 'Print decompilation to stdout',
-            dest: 'print',
+      parser.addArgument('-v', {
+            help: 'Open visual mode to navigate with r2retdec',
+            dest: 'visual',
             action: 'storeTrue'
       });
       parser.addArgument('--python', {
@@ -122,7 +122,7 @@ try {
       highlighted_code += highlight(r2.cmd('pdc'));
 }
 
-if (a.print === true) {
+if (a.visual !== true) {
       console.log(highlighted_code);
       process.exit(0);
 }
