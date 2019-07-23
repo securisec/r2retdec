@@ -132,7 +132,7 @@ try {
       code = fs.readFileSync(a.tmp, 'utf8');
 } catch (e) {
       errMsg = `Failed to decompile ${binaryPath}. Using pdc instead`;
-      code == r2.cmd('pdc');
+      code = r2.cmd('pdc');
 }
 
 code = rename_functions(code);
