@@ -108,6 +108,11 @@ function rename_functions(code) {
 
 // runs retdec decompiler script
 var binaryPath = r2.cmdj('oj')[0]['uri'];
+// Check if we're using a ptrace uri (meaning we're in -d mode)
+if (RegExp('^ptrace:\/\/[0-9]+$').test(binaryPath.trim())) {
+    console.log('Decompilation does not work while in debug mode. Use pdc.');
+    process.exit(0)
+}
 var pdf = r2.cmdj('pdfj');
 if (pdf === null) {
 	// Cannot find any function in current offset
