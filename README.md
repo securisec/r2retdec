@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # r2retdec
 [![codebeat badge](https://codebeat.co/badges/c18f32ef-bf28-4948-8156-9a52e50e121c)](https://codebeat.co/projects/github-com-securisec-r2retdec-master)
 [![Twitter Follow](https://img.shields.io/twitter/follow/securisec.svg?style=social&label=Follow)]()
